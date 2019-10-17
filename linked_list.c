@@ -52,12 +52,5 @@ int main( int argc, const char * arg[] )
 		current = current->next;
 	}
 	
-	current = start;
-	while (current) {
-		next = current->next;
-		free( current );
-		current = next;
-	}
-
 	return 0;
 }
