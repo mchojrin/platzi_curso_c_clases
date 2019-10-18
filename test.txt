@@ -1,0 +1,4 @@
+Estoy en modo edicion. 
+Hola! Estoy editando con vim!!!
+
+Ah... esto es otra cosa!
