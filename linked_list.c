@@ -51,6 +51,49 @@ int main( int argc, const char * arg[] )
 		printf( current->next ? ", " : "\n" );
 		current = current->next;
 	}
-	
+
+	do {
+		printf( "¿Qué número desea eliminar? (0 para terminar): ");
+		scanf( "%d", &number );
+		if ( number ) {
+			NODE * previous = NULL;
+			current = start;
+
+			while ( current ) {
+				next = current->next;
+				if ( current->number == number ) {
+					free( current );
+					if (  previous ) {
+						previous->next = next;
+						current = next;
+					} else {
+						start = current = next;
+					}
+				} else {
+					previous = current;
+					current = next;					
+				}
+			}
+		}
+	} while ( number );
+
+	current = start;
+	printf( "La lista contiene los numeros: \n" );
+	while (current) {
+		printf( "%d", current->number );
+		printf( current->next ? ", " : "\n" );
+		current = current->next;
+	}
+
+	printf( "Liberando!\n" );
+	current = start;
+	while (current) {
+		next = current->next;
+		free( current );
+		current = next;
+	}
+
+	printf( "Todo liberado!\n" );
+
 	return 0;
 }
